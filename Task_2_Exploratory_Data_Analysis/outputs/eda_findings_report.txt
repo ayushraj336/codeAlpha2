@@ -1,0 +1,63 @@
+================================================================================
+CODEALPHA DATA ANALYTICS INTERNSHIP
+TASK 2: EXPLORATORY DATA ANALYSIS (EDA) - EXECUTIVE SUMMARY REPORT
+================================================================================
+
+1. CORE METRICS OVERVIEW
+--------------------------------------------------------------------------------
+- Total Passengers Analyzed: 891
+- Total Survivors: 402 (45.12%)
+- Deceased: 489 (54.88%)
+- Median Passenger Age: 31.7 years
+- Median Ticket Fare: $19.67 (Mean: $34.45)
+
+2. KEY QUESTIONS & EXPLORATORY FINDINGS
+--------------------------------------------------------------------------------
+Q1: Was gender associated with survival outcomes?
+Answer: Yes. Gender was strongly associated with survival outcomes in this dataset. Female passengers had a 81.3% survival rate 
+compared with 24.2% for males. This analysis shows a strong association in the Titanic dataset, 
+but it does not establish that gender itself caused the difference.
+
+Q2: How was socio-economic class (Pclass) associated with survival?
+Answer: Higher socio-economic class was associated with higher survival rates. 1st Class passengers 
+exhibited a 65.9% survival rate, whereas 3rd Class passengers 
+had only a 34.4% survival rate.
+
+Q3: How did traveling with family vs alone influence outcomes?
+Answer: Moderate family size (2 to 4 members) yielded higher survival rates (~55-60%) compared 
+to solo travelers (IsAlone=1, ~30%) and excessively large families (>5 members, ~15%).
+
+3. STATISTICAL HYPOTHESIS TESTING SUMMARY
+--------------------------------------------------------------------------------
+Hypothesis 1 (Gender vs Survival):
+  - Female Survival Rate: 81.3%
+  - Male Survival Rate: 24.2%
+  - Chi-Square: 269.3304, p-value: 1.5880e-60
+  - Conclusion: Statistically Significant (Reject H0)
+
+Hypothesis 2 (Passenger Class vs Survival):
+  - 1st Class Survival Rate: 65.9%
+  - 3rd Class Survival Rate: 34.4%
+  - Chi-Square: 62.8450, p-value: 2.2563e-14
+  - Conclusion: Statistically Significant (Reject H0)
+
+Hypothesis 3 (Fare vs Survival - T-Test):
+  - Average Fare of Survivors: $43.21
+  - Average Fare of Non-Survivors: $27.25
+  - T-Statistic: 6.2557, p-value: 6.6375e-10
+  - Conclusion: Statistically Significant (Reject H0)
+
+Outlier & Anomaly Detection (IQR Method):
+  - Fare Outliers: 129 passengers (> $79.20)
+  - Age Outliers: 32 passengers (> 55.9 years)
+
+4. DATA QUALITY & ANOMALIES IDENTIFIED
+--------------------------------------------------------------------------------
+- Cabin attribute had over 75% missing values, necessitating exclusion from direct modeling.
+- Age had ~20% missing values; resolved through Title-based median imputation.
+- Ticket Fare exhibited severe right-skewness with extreme positive outliers (> $150).
+  Log transformation is recommended for downstream linear/distance-based models.
+
+================================================================================
+Report generated automatically by task_2_eda.py
+================================================================================
